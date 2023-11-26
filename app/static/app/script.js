@@ -18,7 +18,13 @@ if(navClose){
         navMenu.classList.remove('show-menu')
     })
 }
-
+/* Search Section Show */
+document.querySelector('.home__button').addEventListener('click', function() {
+    document.getElementById('search').style.display = 'block';
+});
+document.querySelector('.feature__button').addEventListener('click', function() {
+    document.getElementById('search').style.display = 'block';
+});
 
 /* Remove Menu Mobile */
 const navLink = document.querySelectorAll('.nav__link')
