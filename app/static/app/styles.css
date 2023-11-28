@@ -309,10 +309,6 @@ img {
     row-gap: 2.5rem;
 }
 
-.search__content {
-
-}
-
 .search__form {
     display: grid;
     row-gap: 1rem;
@@ -794,6 +790,29 @@ thead th.active,tbody td.active {
     }
 }
 
+@media screen and (max-width: 428px){
+    .home__tooltip-text {
+        transform: translate(50px, -38px);
+    }
+    .home__tooltip-img {
+        width: 50px;
+    }
+    .home__tooltip {
+        top: 2rem;
+        left: 4rem;
+    }
+    
+    .feature__tooltip-1{
+        top: 4rem;
+        right: 6rem;
+    }
+    .feature__tooltip-2{
+        right: 4rem;
+    }
+    .feature__tooltip-3{
+        left: 9rem;
+    }
+}
 @media screen and (min-width: 526px){
     .about__container{
         grid-template-columns: 380px;
