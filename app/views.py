@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from gradio_client import Client
+from .models import Mammals
 
 # Create your views here.
 
@@ -20,6 +21,9 @@ def index(request):
             api_name="/predict"
         )
 
-        data = result.split(",\n")
+        data_mammals = result.split(",\n")
+
+        data = Mammals.objects.filter(
+            organism_name__in=data_mammals)
 
     return render(request, "app/index.html", context={"datas": data, "description": description})

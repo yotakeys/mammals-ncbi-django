@@ -75,7 +75,7 @@
             </div>
           </div>
 
-          <a href="#search" class="home__button button">
+          <a href="#search-now" class="home__button button">
             Search Now <i class="ri-search-2-line"></i>
           </a>
 
@@ -110,13 +110,14 @@
       </section>
 
       <!-- Search Section -->
-      <section class="search section" id="search">
+      <section class="search section" id="search-now">
         <div class="search__container container grid">
           <div class="search__content">
             <h2 class="section__title">Description Based Search</h2>
             <div class="search__header">
-              <form action="" class="search__form" id="form">
-                <input type="description" placeholder="Type Description" class="search__input">
+              <form action="" class="search__form" id="form" method="post">
+                {% csrf_token %}
+                <input type="text" name="description" value="{{description}}" placeholder="Type Description" class="search__input">
                 <button class="search__button button">
                     Search <i class="ri-search-2-line"></i>
                 </button>
@@ -127,102 +128,24 @@
             <table>
               <thead>
                   <tr>
-                      <th> Id <span class="icon-arrow">&UpArrow;</span></th>
+                      <th> Id Taxon <span class="icon-arrow">&UpArrow;</span></th>
                       <th> Mammals Name <span class="icon-arrow">&UpArrow;</span></th>
                       <th> Accession Code <span class="icon-arrow">&UpArrow;</span></th>
                       <th> Action </th>
                   </tr>
               </thead>
               <tbody>
-                  <tr>
-                      <td> 1 </td>
-                      <td> Homo sapiens </td>
-                      <td> GCF_000001405.40 </td>
+                  {% for data in datas %}
+                    <tr>
+                      <td> {{data.taxon_id}} </td>
+                      <td> {{data.organism_name}} </td>
+                      <td> {{data.accession}} </td>
                       <!-- <td> Homo sapiens, also known as modern humans, are the species to which all existing human beings  The history of Homo sapiens dates back approximately 300,000 years ago when the species first emerged in  Over time, Homo sapiens gradually evolved and spread across the world, eventually populating every   Characteristically, Homo sapiens are unique among other species due to their highly developed cognitive abilities, complex language skills, and advanced toolmaking  They possess a bipedal stance, which means they walk on two legs, freeing their hands to engage in various  This upright posture also enables them to have a wider field of vision compared to many other   One of the most distinguishing features of Homo sapiens is their intricate social  Humans exhibit strong social bonds and form complex societies that vary in cultural practices, beliefs, languages, and  This versatility has allowed Homo sapiens to thrive in diverse environments and adapt to various climates and   Habitatwise, Homo sapiens have demonstrated their adaptability by inhabiting a variety of  From tropical rainforests to arid deserts, icy tundras to dense urban cities, humans have established settlements in nearly every kind of terrain on  This adaptability is one of the key reasons behind the success of Homo sapiens as a   The current population of Homo sapiens is estimated to be around 9 billion people and  This exponential growth can be attributed to several factors, such as improved healthcare, technological advancements, and the ability to cultivate and produce abundant food  However, this rapid population expansion has also led to challenges related to resource distribution, sustainability, and environmental   In addition to these general characteristics, Homo sapiens possess many specific attributes that contribute to their  Humans have a highly developed brain that enables complex cognitive functions such as problemsolving, critical thinking, and  They display a wide range of emotions and are capable of showing empathy towards   Homo sapiens have also made significant advancements in science, technology, and artistic  They have built remarkable structures, created exquisite artwork, developed sophisticated systems of governance, and made remarkable discoveries about the world and the   Overall, Homo sapiens are not only a dominant species due to their physical and intellectual capabilities, but also because of their ability to adapt, learn, and  While humans have undoubtedly achieved remarkable feats, they also face numerous challenges in terms of maintaining a sustainable future for both themselves and the planet they </td> -->
                       <td>
-                        <a href="#" class="action__button button">Download<i class="ri-download-cloud-2-line"></i></a>
+                        <a href="{{data.url_download}}" class="action__button button">Download<i class="ri-download-cloud-2-line"></i></a>
                       </td>
                     </tr>
-                    <tr>
-                      <td> 2 </td>
-                      <td> Mus musculus </td>
-                      <td> GCF_000001635.27 </td>
-                      <td>
-                        <a href="#" class="action__button button">Download<i class="ri-download-cloud-2-line"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td> 3 </td>
-                      <td> Bubalus bubalis </td>
-                      <td> GCF_019923935.1 </td>
-                      <td>
-                        <a href="#" class="action__button button">Download<i class="ri-download-cloud-2-line"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td> 4 </td>
-                      <td> Ovis ammon polii </td>
-                      <td> GCA_023701655.1 </td>
-                      <td>
-                        <a href="#" class="action__button button">Download<i class="ri-download-cloud-2-line"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td> 5 </td>
-                      <td> Capricornis sumatraensis </td>
-                      <td> GCA_032405125.1 </td>
-                      <td>
-                        <a href="#" class="action__button button">Download<i class="ri-download-cloud-2-line"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td> 6 </td>
-                      <td> Acomys kempi </td>
-                      <td> GCA_907164505.1 </td>
-                      <td>
-                        <a href="#" class="action__button button">Download<i class="ri-download-cloud-2-line"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td> 7 </td>
-                      <td> Rattus norvegicus </td>
-                      <td> GCF_015227675.2 </td>
-                      <td>
-                        <a href="#" class="action__button button">Download<i class="ri-download-cloud-2-line"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td> 8 </td>
-                      <td> Sus scrofa </td>
-                      <td> GCF_000003025.6 </td>
-                      <td>
-                        <a href="#" class="action__button button">Download<i class="ri-download-cloud-2-line"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td> 9 </td>
-                      <td> Bos taurus </td>
-                      <td> GCF_002263795.3 </td>
-                      <td>
-                        <a href="#" class="action__button button">Download<i class="ri-download-cloud-2-line"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td> 10 </td>
-                      <td> Canis lupus familiaris </td>
-                      <td> GCF_011100685.1 </td>
-                      <td>
-                        <a href="#" class="action__button button">Download<i class="ri-download-cloud-2-line"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td> 11 </td>
-                      <td> Canis lupus familiaris </td>
-                      <td> GCF_011100685.1 </td>
-                      <td>
-                        <a href="#" class="action__button button">Download<i class="ri-download-cloud-2-line"></i></a>
-                      </td>
-                    </tr>
+                  {% endfor %}
                   </tbody>
                 </table>
               </div>
@@ -272,7 +195,7 @@
                     <span class="feature__tooltip-text">Mammals Listing</span>
                 </div> 
             </div>
-            <a href="#search" class="feature__button button">
+            <a href="#search-now" class="feature__button button">
                 Search Now <i class="ri-search-2-line"></i>
             </a>
         </div>
